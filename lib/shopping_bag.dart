@@ -1,23 +1,21 @@
+
 import 'package:flutter/material.dart';
+import 'package:flutter_dojo/cart_state.dart';
 import 'package:provider/provider.dart';
 
-import 'cart_state.dart';
- 
 class ShoppingBag extends StatelessWidget {
   final double width;
-  final double itemsCount;
- 
+
   const ShoppingBag({
     super.key,
     this.width = 40,
-    required this.itemsCount,
   });
- 
+
   @override
   Widget build(BuildContext context) {
     final cartState = context.watch<CartState>();
     return InkWell(
-      // onTap: () => Navigator.of(context).pushNamed('/cart'),
+      onTap: () => Navigator.of(context).pushNamed('/cart'),
       child: SizedBox(
         width: width,
         child: LayoutBuilder(

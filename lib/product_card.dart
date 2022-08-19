@@ -1,24 +1,24 @@
-import 'package:flutter/material.dart';
+
 import 'package:flutter_dojo/cart_state.dart';
 import 'package:flutter_dojo/product.model.dart';
 import 'package:provider/provider.dart';
- 
+import 'package:flutter/material.dart';
+
 class ProductCard extends StatelessWidget {
   final Product product;
- 
+
   const ProductCard({
     Key? key,
     required this.product,
   }) : super(key: key);
- 
+
   @override
   Widget build(BuildContext context) {
     final cartState = context.watch<CartState>();
     return Container(
       child: Column(
         children: [
-          Image.network(
-              product.imageUrl),
+          Image.network(product.imageUrl),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [

@@ -4,7 +4,7 @@ class Product {
   String description;
   double price;
   double rating;
- 
+
   Product({
     required this.name,
     required this.imageUrl,

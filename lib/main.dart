@@ -1,20 +1,20 @@
 // ignore_for_file: prefer_const_literals_to_create_immutables
- 
+
+
 import 'package:flutter/material.dart';
+import 'package:flutter_dojo/cart.screen.dart';
+import 'package:flutter_dojo/cart_state.dart';
+import 'package:flutter_dojo/catalog.screen.dart';
 import 'package:flutter_dojo/product.model.dart';
-import 'package:flutter_dojo/product_card.dart';
-import 'package:flutter_dojo/shopping_bag.dart';
 import 'package:provider/provider.dart';
 
-import 'cart_state.dart';
- 
 void main() {
   runApp(const MyApp());
 }
- 
+
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
- 
+
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
@@ -25,29 +25,15 @@ class MyApp extends StatelessWidget {
         theme: ThemeData(
           primarySwatch: Colors.blue,
         ),
-        home: Scaffold(
-          appBar: AppBar(
-            backgroundColor: Colors.white,
-            title: Text(
-              'Catalog',
-              style: TextStyle(color: Colors.black54),
-            ),
-            actions: [ShoppingBag(itemsCount: 4)],
-          ),
-          body: GridView.builder(
-            itemCount: products.length,
-            gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                crossAxisCount: 2, childAspectRatio: 3 / 4),
-            itemBuilder: (context, index) => ProductCard(
-              product: products[index],
-            ),
-          ),
-        ),
+        routes: {
+          '/': (_) => const CatalogScreen(),
+          '/cart': (_) => const CartScreen(),
+        },
       ),
     );
   }
 }
- 
+
 List<Product> products = [
   Product(
     name: 'Sillón naranja',
